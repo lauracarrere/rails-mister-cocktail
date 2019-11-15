@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :cocktails, only: [:index, :show, :new, :create, :edit, :update] do
     resources :doses, only: [:create]
   end
+  root to: 'cocktails#index'
 end
