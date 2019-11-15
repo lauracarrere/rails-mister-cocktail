@@ -1,19 +1,14 @@
-<div class="container-fluid bg-dark">
-  <h1 class = "text-warning text-center">My cocktails</h1>
-  <div class="container d-flex justify-content-center mb-5">
-    <div class="row mt-2">
-      <div class="col-8">
-        <%@cocktails.each do |cocktail| %>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><%= cocktail.name%></h5>
-              <a href="#" class="card-link text-primary"><%= link_to 'more info', cocktail_path(cocktail)%></a>
-            </div>
-          </div>
-        <%end %>
-        </div>
+<div class="container-fluid">
+  <h1 class = "text-warning text-center mt-5">My cocktails</h1>
+  <div class="cards-container">
+    <div class="cards">
+      <%@cocktails.each do |cocktail| %>
+        <%= render 'form', cocktail: cocktail%>
+      <%end %>
     </div>
   </div>
-  <%= link_to 'new cocktail', new_cocktail_path%>
+  <div class="container text-center">
+    <%= link_to 'new cocktail', new_cocktail_path%>
+  </div>
 </div>
 
